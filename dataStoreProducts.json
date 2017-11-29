@@ -1,0 +1,63 @@
+{
+
+	"headPhones": [{
+			"name": "SONY",
+			"id": "hp238",
+			"price": 2550,
+			"color": "black",
+			"imageurl": "http://www.sony.co.in/electronics/headband-headphones/wh-1000xm2",
+			"rating": 3.4,
+			"frequentlyBoughtTogether": []
+		},
+		{
+			"name": "LG",
+			"id": "hp568",
+			"price": 3950,
+			"color": "red",
+			"imageurl": "http://www.lg.com/us/bluetooth-headsets-headphones/lg-HBS-780-Metallic-Red-tone-pro",
+			"rating": 4.2,
+			"frequentlyBoughtTogether": []
+		},
+		{
+			"name": "PHILIPS",
+			"id": "hp872",
+			"price": 1950,
+			"color": "white",
+			"imageurl": "https://www.amazon.in/Philips-SHE3200WT-00-Headphones-White/dp/B0133F2KSS",
+			"rating": 3.5,
+			"frequentlyBoughtTogether": [{
+				"name": "SanDisk USB",
+				"id": "s8ut",
+				"price": "800"
+			}]
+		}
+	],
+
+
+	"televisionLED": [{
+			"name": "SAMSUNG",
+			"id": "tv240",
+			"price": 42000,
+			"size": "1920 x 1080",
+			"availableEMI": "Not Available",
+			"imageurl": "https://shop.samsung.com/in/ua75mu7000kxxl.html",
+			"rating": 3.4,
+			"buyTogetherAndSave": []
+		},
+		{
+			"name": "ONIDA",
+			"id": "tv984",
+			"price": 28000,
+			"size": "1366 x 768",
+			"availableEMI": "Available",
+			"imageurl": "http://www.mysmartprice.com/electronics/onida-leo32hain-32-inch-smart-led-tv-msf268937",
+			"rating": 3.9,
+			"buyTogetherAndSave": [{
+				"name": "Dish TV",
+				"id": "d872",
+				"price": 1000
+			}]
+		}
+	]
+
+}
