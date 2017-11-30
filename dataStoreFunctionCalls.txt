@@ -1,0 +1,95 @@
+function accessDataStoreProducts(file, callback) {
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.overrideMimeType("application/json");
+    httpRequest.open("GET", file, true);
+    httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+            callback(httpRequest.responseText);
+        }
+    }
+    httpRequest.send(null);
+}
+
+function searchInHeadPhones(pro,unique){
+       var i, c=0, proLen = pro.headPhones.length;
+       for(i=0; i<proLen; i++)
+       {
+          if(pro.headPhones[i].id == unique)
+          {
+           c = c+1;
+           console.log("Entry found!\n"+pro.headPhones[i].name+" head phones, costs RS."+pro.headPhones[i].price+" which are in "+pro.headPhones[i].color+" color");
+          }
+        
+       }
+       if(c==0){
+          console.log("No results found!");
+       }
+}
+
+function searchInTelevision(pro2,unique2){
+       var i, c=0, pro2Len = pro2.televisionLED.length;
+       for(i=0; i<pro2Len; i++)
+       {
+          if(pro2.televisionLED[i].id == unique2)
+          {
+            c = c+1;
+            console.log("Entry found!\n"+pro2.televisionLED[i].name+" TV, costs RS."+pro2.televisionLED[i].price+" which gives you a big picture in "+pro2.televisionLED[i].size+" size");
+          }
+          
+       }
+       if(c==0){
+          console.log("No results found!");
+       }
+}
+
+function getByIndex(pro,index){
+          var i, c=0, proLen = pro.headPhones.length;
+          for(i=0; i<proLen; i++){
+              if(i == index){
+                c = c+1;
+                console.log("Entry in this position is "+pro.headPhones[i].name+" headphones");
+              }
+          }
+          if(c==0){
+             console.log("Invalid position/index provided");
+          }
+}
+
+function getByIndex2(pro2,index2){
+          var i, c=0, pro2Len = pro2.televisionLED.length;
+          for(i=0; i<pro2Len; i++){
+              if(i == index2){
+                c = c+1;
+                console.log("Entry in this position is "+pro2.televisionLED[i].name+" TV");
+              }
+          }
+          if(c==0){
+             console.log("Invalid position/index provided");
+          }
+}
+
+function getByAttributeSwitch(datastore, serachID){
+        startLetters = serachID.slice(0,2);
+        switch(startLetters){
+           case 'hp': searchInHeadPhones(datastore, serachID); // function call to find an Entry in JSON file using product ID
+                      break;
+           case 'tv': searchInTelevision(datastore, serachID);// function call to find an Entry in JSON file using product ID
+                      break;
+           default:   console.log("No results found");     // default output for bad input
+                               
+        }
+}
+
+//function call to read the data in JSON file
+accessDataStoreProducts("https://raw.githubusercontent.com/anagandula/hello-world/master/dataStoreProducts.json", function(text){
+    var data = JSON.parse(text);  
+    console.log(data);            //to showcase the JSON data in console
+});
+
+accessDataStoreProducts("https://raw.githubusercontent.com/anagandula/hello-world/master/dataStoreProducts.json", function(text){
+    var data = JSON.parse(text);
+    getByAttributeSwitch(data,"hp238");  //function call to directly go to specific product depending on input
+    getByIndex(data,2);                  //function call to find an Entry in JSON file using provided index in an array
+    getByIndex2(data,1);                 //function call to find an Entry in JSON file using provided index in an array
+});
+
